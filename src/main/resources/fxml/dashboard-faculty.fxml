@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campusos.controller.DashboardFacultyController">
+    <top>
+        <VBox spacing="4">
+            <Label fx:id="welcomeLabel" text="Welcome back" styleClass="title-large"/>
+            <Label text="Your teaching dashboard - complaints assigned to you, events and bookings"
+                   styleClass="section-subtitle"/>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true">
+        <VBox spacing="16">
+            <HBox fx:id="kpiRow" spacing="14"/>
+            <HBox spacing="16">
+                <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Complaints assigned to you (open)" styleClass="card-title"/>
+                    <TableView fx:id="assignedTable">
+                        <columns>
+                            <TableColumn fx:id="assignedId" text="ID" prefWidth="45"/>
+                            <TableColumn fx:id="assignedTitle" text="Complaint" prefWidth="230"/>
+                            <TableColumn fx:id="assignedPriority" text="Priority" prefWidth="90"/>
+                            <TableColumn fx:id="assignedStatus" text="Status" prefWidth="100"/>
+                            <TableColumn fx:id="assignedCreated" text="Created" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+                <VBox styleClass="card" maxWidth="480" HBox.hgrow="ALWAYS">
+                    <Label text="Your upcoming events" styleClass="card-title"/>
+                    <TableView fx:id="eventsTable">
+                        <columns>
+                            <TableColumn fx:id="eventTitle" text="Event" prefWidth="200"/>
+                            <TableColumn fx:id="eventStart" text="Starts" prefWidth="130"/>
+                            <TableColumn fx:id="eventSeats" text="Seats" prefWidth="80"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </HBox>
+            <VBox styleClass="card">
+                <Label text="Your recent activity" styleClass="card-title"/>
+                <TableView fx:id="activityTable">
+                    <columns>
+                        <TableColumn fx:id="activityTime" text="When" prefWidth="150"/>
+                        <TableColumn fx:id="activityAction" text="Activity" prefWidth="260"/>
+                        <TableColumn fx:id="activityDetail" text="Details" prefWidth="330"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campusos.controller.EventEditDialogController" prefWidth="500">
+    <content>
+        <VBox spacing="10">
+            <Label fx:id="formError" styleClass="error-banner" wrapText="true" visible="false" managed="false"/>
+            <VBox spacing="3"><Label text="Event title" styleClass="field-label"/>
+                <TextField fx:id="titleField"/></VBox>
+            <VBox spacing="3"><Label text="Description" styleClass="field-label"/>
+                <TextArea fx:id="descriptionField" prefRowCount="3"/></VBox>
+            <HBox spacing="10">
+                <VBox spacing="3" HBox.hgrow="ALWAYS"><Label text="Venue" styleClass="field-label"/>
+                    <TextField fx:id="venueField"/></VBox>
+                <VBox spacing="3"><Label text="Max participants" styleClass="field-label"/>
+                    <Spinner fx:id="capacitySpinner" prefWidth="110" min="1" max="10000" initialValue="50"/>
+                </VBox>
+            </HBox>
+            <HBox spacing="10">
+                <VBox spacing="3"><Label text="Start date" styleClass="field-label"/>
+                    <DatePicker fx:id="startDatePicker"/></VBox>
+                <VBox spacing="3"><Label text="Start time" styleClass="field-label"/>
+                    <ComboBox fx:id="startTimeCombo" prefWidth="100"/></VBox>
+                <VBox spacing="3"><Label text="End date" styleClass="field-label"/>
+                    <DatePicker fx:id="endDatePicker"/></VBox>
+                <VBox spacing="3"><Label text="End time" styleClass="field-label"/>
+                    <ComboBox fx:id="endTimeCombo" prefWidth="100"/></VBox>
+            </HBox>
+            <HBox spacing="10">
+                <VBox spacing="3"><Label text="Registration deadline date" styleClass="field-label"/>
+                    <DatePicker fx:id="deadlineDatePicker"/></VBox>
+                <VBox spacing="3"><Label text="Deadline time" styleClass="field-label"/>
+                    <ComboBox fx:id="deadlineTimeCombo" prefWidth="100"/></VBox>
+                <VBox spacing="3" HBox.hgrow="ALWAYS"><Label text="Department (optional)" styleClass="field-label"/>
+                    <ComboBox fx:id="departmentCombo" maxWidth="Infinity"/></VBox>
+            </HBox>
+        </VBox>
+    </content>
+</DialogPane>

@@ -1,0 +1,23 @@
+# =====================================================================
+# CampusOS - Database Configuration Template
+# =====================================================================
+# Copy this file to  config/db.properties  and edit the values for your
+# local MySQL installation.  config/db.properties is listed in .gitignore
+# so real credentials are never committed to version control.
+#
+# The application reads configuration in this priority order:
+#   1. Environment variables:  CAMPUSOS_DB_URL, CAMPUSOS_DB_USER, CAMPUSOS_DB_PASSWORD
+#   2. File  config/db.properties   (relative to the working directory)
+#
+# Example (Windows, MySQL 8, running on localhost):
+#   db.url      = jdbc:mysql://127.0.0.1:3306/campusos_db?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+#   db.username = campusos_dev
+#   db.password = yourStrongPassword
+# =====================================================================
+
+db.url=jdbc:mysql://127.0.0.1:3306/campusos_db?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+db.username=campusos_dev
+db.password=CHANGE_ME
+
+# Optional connection pool tuning (values shown are defaults)
+db.pool.size=10

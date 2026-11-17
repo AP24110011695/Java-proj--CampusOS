@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.DialogPane?>
+
+<DialogPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campusos.controller.ComplaintDetailDialogController" prefWidth="640">
+    <content>
+        <VBox spacing="12">
+            <Label fx:id="titleLabel" styleClass="title-medium"/>
+            <HBox spacing="14">
+                <VBox spacing="2">
+                    <Label text="Status" styleClass="field-label"/>
+                    <Label fx:id="statusLabel" styleClass="detail-value"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Priority" styleClass="field-label"/>
+                    <Label fx:id="priorityLabel" styleClass="detail-value"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Category" styleClass="field-label"/>
+                    <Label fx:id="categoryLabel" styleClass="detail-value"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Submitted by" styleClass="field-label"/>
+                    <Label fx:id="submitterLabel" styleClass="detail-value"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Assigned to" styleClass="field-label"/>
+                    <Label fx:id="assignedLabel" styleClass="detail-value"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Created" styleClass="field-label"/>
+                    <Label fx:id="createdLabel" styleClass="detail-value"/>
+                </VBox>
+            </HBox>
+            <VBox spacing="2">
+                <Label text="Description" styleClass="field-label"/>
+                <Label fx:id="descriptionLabel" styleClass="detail-value" wrapText="true"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Status history (every change is preserved)" styleClass="card-title"/>
+                <ListView fx:id="historyList" prefHeight="170"/>
+            </VBox>
+            <VBox spacing="4" fx:id="actionPanel">
+                <Label fx:id="actionTitle" styleClass="card-title" text="Actions"/>
+                <HBox fx:id="assignPanel" spacing="8" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="facultyCombo" prefWidth="260" promptText="Choose faculty member"/>
+                    <Button fx:id="assignButton" text="Assign" styleClass="btn-primary" onAction="#handleAssign"/>
+                </HBox>
+                <TextArea fx:id="remarksField" promptText="Remarks (required for status updates)" prefRowCount="2"/>
+                <HBox spacing="8">
+                    <Button fx:id="progressButton" text="→ Move to next step" styleClass="btn-primary"
+                            onAction="#handleAdvance"/>
+                    <Label fx:id="nextStepLabel" styleClass="meta-label" wrapText="true"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </content>
+</DialogPane>

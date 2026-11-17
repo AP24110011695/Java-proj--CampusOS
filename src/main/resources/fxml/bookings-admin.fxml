@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campusos.controller.BookingsAdminController">
+    <top>
+        <VBox spacing="10">
+            <Label text="All booking requests across campus - approve, reject or mark completed"
+                   styleClass="section-subtitle"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <ComboBox fx:id="statusFilter" prefWidth="150" onAction="#handleApplyFilters"/>
+                <DatePicker fx:id="dateFilter" promptText="Filter by date"/>
+                <Button text="Apply" styleClass="btn-primary" onAction="#handleApplyFilters"/>
+                <Button text="Clear" onAction="#handleClearFilters"/>
+                <TextField fx:id="searchField" promptText="Search user or purpose..." prefWidth="220"
+                           onAction="#handleApplyFilters"/>
+                <Button text="⇩ Export CSV" onAction="#handleExport"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="8">
+            <TableView fx:id="bookingTable">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colResource" text="Resource" prefWidth="150"/>
+                    <TableColumn fx:id="colUser" text="Requested by" prefWidth="150"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="95"/>
+                    <TableColumn fx:id="colStart" text="Start" prefWidth="70"/>
+                    <TableColumn fx:id="colEnd" text="End" prefWidth="70"/>
+                    <TableColumn fx:id="colPurpose" text="Purpose" prefWidth="170"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="105"/>
+                    <TableColumn fx:id="colDecidedBy" text="Decided by" prefWidth="110"/>
+                    <TableColumn fx:id="colRemarks" text="Remarks" prefWidth="120"/>
+                </columns>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            </TableView>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Button fx:id="approveButton" text="✓ Approve" styleClass="btn-success" onAction="#handleApprove"/>
+                <Button fx:id="rejectButton" text="✕ Reject" styleClass="btn-danger" onAction="#handleReject"/>
+                <Button fx:id="completeButton" text="✔ Mark completed" onAction="#handleComplete"/>
+                <Label fx:id="hintLabel" styleClass="meta-label" text="Select a booking to act on it"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

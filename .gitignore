@@ -1,0 +1,36 @@
+# CampusOS .gitignore
+
+# Build output
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+nbproject/private/
+nbactions.xml
+
+# Local configuration containing database credentials (NEVER commit this)
+config/db.properties
+db.properties
+
+# Logs and crash dumps
+*.log
+logs/
+hs_err_pid*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test export output
+exports/
+
+# Presentation screenshots (contain personal account data - not for publishing)
+ppt-assets/

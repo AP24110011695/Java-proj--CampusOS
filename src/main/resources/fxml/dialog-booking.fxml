@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campusos.controller.BookingDialogController" prefWidth="460">
+    <content>
+        <VBox spacing="10">
+            <Label fx:id="formError" styleClass="error-banner" wrapText="true" visible="false" managed="false"/>
+            <Label fx:id="resourceSummary" styleClass="info-banner" wrapText="true"/>
+            <HBox spacing="10">
+                <VBox spacing="3" HBox.hgrow="ALWAYS"><Label text="Resource" styleClass="field-label"/>
+                    <ComboBox fx:id="resourceCombo" maxWidth="Infinity"/></VBox>
+            </HBox>
+            <HBox spacing="10">
+                <VBox spacing="3"><Label text="Date" styleClass="field-label"/>
+                    <DatePicker fx:id="datePicker"/></VBox>
+                <VBox spacing="3"><Label text="Start time" styleClass="field-label"/>
+                    <ComboBox fx:id="startCombo" prefWidth="110"/></VBox>
+                <VBox spacing="3"><Label text="End time" styleClass="field-label"/>
+                    <ComboBox fx:id="endCombo" prefWidth="110"/></VBox>
+            </HBox>
+            <VBox spacing="3"><Label text="Purpose" styleClass="field-label"/>
+                <TextField fx:id="purposeField" promptText="e.g. OOP lab practice session"/></VBox>
+            <Label styleClass="meta-label" wrapText="true"
+                   text="Pending and approved bookings block overlapping time slots (overlap rule: newStart &lt; existingEnd AND newEnd &gt; existingStart)."/>
+        </VBox>
+    </content>
+</DialogPane>

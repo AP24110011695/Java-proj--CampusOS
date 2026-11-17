@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campusos.controller.DashboardAdminController">
+    <top>
+        <VBox spacing="4">
+            <Label text="Welcome back, administrator" styleClass="title-large"/>
+            <Label text="Live campus overview - every number comes from the MySQL database"
+                   styleClass="section-subtitle"/>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true">
+        <VBox spacing="16">
+            <FlowPane fx:id="statsRow" hgap="14" vgap="14"/>
+            <HBox spacing="16">
+                <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Bookings by status" styleClass="card-title"/>
+                    <PieChart fx:id="bookingPie" prefHeight="240"/>
+                </VBox>
+                <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Complaints by status" styleClass="card-title"/>
+                    <PieChart fx:id="complaintPie" prefHeight="240"/>
+                </VBox>
+            </HBox>
+            <HBox spacing="16">
+                <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Monthly booking trend (last 6 months)" styleClass="card-title"/>
+                    <LineChart fx:id="trendChart" prefHeight="230" legendVisible="false">
+                        <xAxis><javafx.scene.chart.CategoryAxis label="Month"/></xAxis>
+                        <yAxis><javafx.scene.chart.NumberAxis label="Bookings"/></yAxis>
+                    </LineChart>
+                </VBox>
+                <VBox styleClass="card" HBox.hgrow="ALWAYS" maxWidth="520">
+                    <Label text="Awaiting your action" styleClass="card-title"/>
+                    <TableView fx:id="pendingTable">
+                        <columns>
+                            <TableColumn fx:id="pendingCol" text="Pending item" prefWidth="300"/>
+                            <TableColumn fx:id="pendingCountCol" text="Count" prefWidth="80"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </HBox>
+        </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

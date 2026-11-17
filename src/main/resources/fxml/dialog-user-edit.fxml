@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.campusos.controller.UserEditDialogController" prefWidth="470">
+    <content>
+        <VBox spacing="10">
+            <Label fx:id="formError" styleClass="error-banner" wrapText="true" visible="false" managed="false"/>
+            <VBox spacing="3"><Label text="Full name" styleClass="field-label"/>
+                <TextField fx:id="nameField"/></VBox>
+            <VBox spacing="3"><Label text="Email" styleClass="field-label"/>
+                <TextField fx:id="emailField"/></VBox>
+            <HBox spacing="10">
+                <VBox spacing="3" HBox.hgrow="ALWAYS"><Label text="Role" styleClass="field-label"/>
+                    <ComboBox fx:id="roleCombo" maxWidth="Infinity"/></VBox>
+                <VBox spacing="3" HBox.hgrow="ALWAYS"><Label text="Department" styleClass="field-label"/>
+                    <ComboBox fx:id="departmentCombo" maxWidth="Infinity"/></VBox>
+            </HBox>
+            <HBox spacing="10">
+                <VBox spacing="3" HBox.hgrow="ALWAYS"><Label fx:id="identifierLabel" text="Student/Employee ID" styleClass="field-label"/>
+                    <TextField fx:id="identifierField"/></VBox>
+                <VBox spacing="3" HBox.hgrow="ALWAYS"><Label text="Phone" styleClass="field-label"/>
+                    <TextField fx:id="phoneField"/></VBox>
+            </HBox>
+            <VBox spacing="3"><Label fx:id="passwordLabel" text="Password" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField"/></VBox>
+            <VBox spacing="3"><Label text="Account status" styleClass="field-label"/>
+                <ComboBox fx:id="statusCombo" maxWidth="Infinity"/></VBox>
+        </VBox>
+    </content>
+</DialogPane>
